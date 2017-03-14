@@ -11,7 +11,7 @@
 			<div id="page-content">
 				<div class="page-box">
 					<h3 class="page-title">
-						Manage Clerks 
+						Manage Admin 
 					</h3>
 					<div class="example-box-wrapper">
 						<?php
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 </div>
-<?php 
+<?php
 /////////////////////////
 //MODAL FUNCTIONS
 updMod();

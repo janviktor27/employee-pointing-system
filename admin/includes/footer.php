@@ -108,5 +108,20 @@
 	<link rel="stylesheet" type="text/css" href="../assets-minified/widgets/modal/modal.css">
 	<script type="text/javascript" src="../assets-minified/widgets/modal/modal.js"></script>
 
+  <!-- Morris-->
+  <script type="text/javascript" src="../assets-minified/js-core/raphael.js"></script>
+  <link rel="stylesheet" type="text/css" href="../assets-minified/widgets/charts/morris/morris.css">
+  <script type="text/javascript" src="../assets-minified/widgets/charts/morris/morris.js"></script>
+  <?php include_once'./classes/class.footer.php';?>
+  <script>
+	      Morris.Bar({
+	      element: "hero-bar",
+	      data: <?php getMonthHighest(); ?>,
+				xkey: "name",
+        ykeys: ["userpoints"],
+        labels: ["Points", "cur_month"],
+        hideHover: "auto"
+	      });
+	   </script>
 </body>
 </html>

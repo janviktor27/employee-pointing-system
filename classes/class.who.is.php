@@ -58,7 +58,58 @@ $usr_ein = $_SESSION['emp_usr'];
 		$curprevjob = $row['EMP_PREV_JOB'];
 		echo "$curprevjob";
 	}
-	
+
+////////////////////////////////////////////////////
+//GET USER SSS NO.
+	function userSSS(){
+		global $_CON;
+		global $usr_ein;
+		$sqlSearch = mysqli_query($_CON,"
+		SELECT
+		emp_sss
+		FROM
+		employee_table
+		WHERE
+		EMP_EIN='$usr_ein'");
+		$row = mysqli_fetch_array($sqlSearch);
+		$emp_sss = $row['emp_sss'];
+		echo "$emp_sss";
+	}
+
+////////////////////////////////////////////////////
+//GET USER
+	function userAddress(){
+		global $_CON;
+		global $usr_ein;
+		$sqlSearch = mysqli_query($_CON,"
+		SELECT
+		emp_address
+		FROM
+		employee_table
+		WHERE
+		EMP_EIN='$usr_ein'");
+		$row = mysqli_fetch_array($sqlSearch);
+		$emp_address = $row['emp_address'];
+		echo "$emp_address";
+	}
+
+////////////////////////////////////////////////////
+//GET USER
+	function userBirthdate(){
+		global $_CON;
+		global $usr_ein;
+		$sqlSearch = mysqli_query($_CON,"
+		SELECT
+		date_of_birth
+		FROM
+		employee_table
+		WHERE
+		EMP_EIN='$usr_ein'");
+		$row = mysqli_fetch_array($sqlSearch);
+		$date_of_birth = date('M d, Y', strtotime($row['date_of_birth']));
+		echo "$date_of_birth";
+	}
+
 ////////////////////////////////////////////////////
 //GET PROFILE PICTURE
 	function profPicSmall(){
@@ -136,4 +187,3 @@ $usr_ein = $_SESSION['emp_usr'];
 			";
 		}
 	}
-	

@@ -11,7 +11,7 @@
 			<div id="page-content">
 				<div class="page-box">
 					<h3 class="page-title">
-						Manage employee 
+						Manage employee
 					</h3>
 					<div class="example-box-wrapper">
 						<?php
@@ -87,6 +87,21 @@
 							<input type="text" class="form-control" name="inputPREJOB" id="inputPREJOB" placeholder="Previous Job (optional)"> </div>
 					</div>
 					<div class="form-group">
+						<label for="inpSSS" class="col-sm-3 control-label">SSS No.</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="inpSSS" id="inpSSS" placeholder="SSS No."> </div>
+					</div>
+					<div class="form-group">
+						<label for="inpAddress" class="col-sm-3 control-label">Address</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="inpAddress" id="inpAddress" placeholder="Address"> </div>
+					</div>
+					<div class="form-group">
+						<label for="inpBirthDate" class="col-sm-3 control-label">Date of Birth</label>
+						<div class="col-sm-9">
+							<input type="date" class="form-control" name="inpBirthDate" id="inpBirthDate"> </div>
+					</div>
+					<div class="form-group">
 						<label for="inputPWD" class="col-sm-3 control-label"></label>
 						<div class="col-sm-9">
 							<h4>Default password is 123456</h4> </div>
@@ -94,7 +109,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
 						<button type="submit" name="btn_add" class="btn btn-info">Add employee</button>
-					</div>	
+					</div>
 			</form>
 			</div>
 		</div>
@@ -103,8 +118,8 @@
 <?php
 /////////////////////////
 //FUNCTION MODAL!
-updMod(); 
-delMod(); 
+updMod();
+delMod();
 ?>
 <!--Modal End-->
 

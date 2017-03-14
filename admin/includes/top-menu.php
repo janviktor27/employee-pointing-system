@@ -4,6 +4,10 @@
 		<a id="collapse-sidebar" href="#" title=""> <i class="glyph-icon icon-chevron-left"></i> </a>
 	</div>
 	<!-- #header-logo -->
+	<div id="sidebar-search">
+		<h3>&nbsp; PPDO ONLINE PMS</h3>
+	</div>
+
 	<div id="header-right">
 		<div class="user-profile dropdown">
 			<a href="#" title="" class="user-ico clearfix" data-toggle="dropdown">
@@ -15,7 +19,7 @@
 						<div class="user-img"> <a href="#" data-toggle="modal" data-target="#myModal" class="change-img">Change photo</a>
 							<?php profPicSmall(); ?>
 						</div>
-						<div class="user-info"> 
+						<div class="user-info">
 						 <span>
                           <?php userFullname();?>
                           <i><?php userCurJob(); ?></i>

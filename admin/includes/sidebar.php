@@ -21,7 +21,7 @@
 							<a href="employee.php" title="Manage employee"><span> Employee</span> </a>
 						</li>
 						<li>
-							<a href="co-clerks.php" title="Manage co-clerks"><span> Co-clerk</span> </a>
+							<a href="co-clerks.php" title="Manage co-clerks"><span> Administrators</span> </a>
 						</li>
 					</ul>
 				</li>

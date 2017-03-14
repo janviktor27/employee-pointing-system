@@ -1,7 +1,7 @@
 <?php
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //MY CONNECTION
-$_CON = mysqli_connect('localhost', 'root', '', 'employee_pointing_system');
+$_CON = mysqli_connect('localhost', 'root', 'Js9qyc2vS9w6mn52', 'employee_pointing_system');
 
 if (!$_CON) {
     echo mysqli_connect_error() . PHP_EOL;

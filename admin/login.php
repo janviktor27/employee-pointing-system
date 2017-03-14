@@ -9,7 +9,7 @@ ob_start();
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title> Clerk Login </title>
+	<title> Admin Login </title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<!-- JS Core -->
@@ -45,12 +45,12 @@ ob_start();
                             <i class="glyph-icon icon-user"></i>
                         </span>
                         <div class="header-wrapper">
-                            Clerk Login
+                            Admin Login
                             <small>Login to your account.</small>
                         </div>
                     </h3>
                     <div class="content-box-wrapper">
-                        <div class="form-group"> 
+                        <div class="form-group">
                             <div class="input-group">
                                 <input name="inpCLERKEIN" type="text" class="form-control" placeholder="Enter employee #" required>
                                 <span class="input-group-addon">
@@ -69,10 +69,10 @@ ob_start();
                         <button type="submit" class="btn btn-success btn-block">Sign In</button>
                     </div>
                 </div>
-            </form>			
-			
+            </form>
+
 		</div>
-			
+
 		</div>
 	</div>
 </body>

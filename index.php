@@ -57,7 +57,12 @@ include'classes/class.who.is.php';
 								<div class="">
 									<?php profPicCircle(); ?>
 										<h5 class="font-bold"><?php userFullname(); ?></h5>
-										<h6><?php userCurJob(); ?></h6>
+										<hr width="100%">
+										<h6>SSS No.:  <?php userSSS(); ?></h6>
+										<h6>Address: <?php  userAddress(); ?></h6>
+										<h6>Birthdate: <?php  userBirthdate(); ?></h6>
+										<hr width="100%">
+										<h6>Currernt work: <?php userCurJob(); ?></h6>
 										<h6>Previous work: <?php userPrevJob(); ?></h6>
 									</div>
 								</div>

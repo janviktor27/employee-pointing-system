@@ -16,6 +16,9 @@ include_once('./../connect.php');
 			$inputLNAME = mysqli_real_escape_string($_CON, $_POST['inputLNAME']);
 			$inputCURJOB = mysqli_real_escape_string($_CON, $_POST['inputCURJOB']);
 			$inputPREJOB = mysqli_real_escape_string($_CON, $_POST['inputPREJOB']);
+			$inpSSS = mysqli_real_escape_string($_CON, $_POST['inpSSS']);
+			$inpAddress = mysqli_real_escape_string($_CON, $_POST['inpAddress']);
+			$inpBirthDate = mysqli_real_escape_string($_CON, $_POST['inpBirthDate']);
 			$default_pass = md5("123456");
 			//CHECK IF EIN EXIST
 			$sqlSearch = mysqli_query($_CON, "SELECT EMP_EIN FROM employee_table WHERE EMP_EIN='$inputEIN' ");
@@ -24,9 +27,18 @@ include_once('./../connect.php');
 				ob_end_clean();
 				header("location: employee.php?add=exist");
 			}else{
-				$sqlInsert = mysqli_query($_CON, "INSERT INTO employee_table 
-				(EMP_EIN, EMP_FNAME, EMP_LNAME, EMP_CUR_JOB, EMP_PREV_JOB, USER_TYPE, EMP_PASSWORD)
-				VALUES('$inputEIN','$inputFNAME','$inputLNAME','$inputCURJOB','$inputPREJOB','2','$default_pass')");
+				$sqlInsert = mysqli_query($_CON, "INSERT INTO employee_table
+				(EMP_EIN, EMP_FNAME, EMP_LNAME, EMP_CUR_JOB, EMP_PREV_JOB, emp_sss, emp_address, date_of_birth, USER_TYPE, EMP_PASSWORD)
+				VALUES('$inputEIN',
+					'$inputFNAME',
+					'$inputLNAME',
+					'$inputCURJOB',
+					'$inputPREJOB',
+					'$inpSSS',
+					'$inpAddress',
+					'$inpBirthDate',
+					'2',
+					'$default_pass')");
 				ob_end_clean();
 				header("location: employee.php?add=true");
 			}
@@ -83,6 +95,9 @@ include_once('./../connect.php');
 				$lname = mysqli_real_escape_string($_CON, $row['EMP_LNAME']);
 				$curjob = mysqli_real_escape_string($_CON, $row['EMP_CUR_JOB']);
 				$prejob = mysqli_real_escape_string($_CON, $row['EMP_PREV_JOB']);
+				$sss = mysqli_real_escape_string($_CON, $row['emp_sss']);
+				$address = mysqli_real_escape_string($_CON, $row['emp_address']);
+				$birthdate = mysqli_real_escape_string($_CON, $row['date_of_birth']);
 				echo"
 <!--Modal Start-->
 <div class='modal fade' id='updMod$_ID' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
@@ -118,6 +133,21 @@ include_once('./../connect.php');
 						<div class='col-sm-9'>
 							<input value='$prejob' type='text' class='form-control' name='inputPREJOB' id='inputPREJOB' placeholder='Previous Job (optional)'> </div>
 					</div>
+					<div class='form-group'>
+						<label for='inpSSS' class='col-sm-3 control-label'>SSS No.</label>
+						<div class='col-sm-9'>
+							<input value='$sss' type='text' class='form-control' name='inpSSS' id='inpSSS' placeholder='SSS No.'> </div>
+					</div>
+					<div class='form-group'>
+						<label for='inpAddress' class='col-sm-3 control-label'>Address</label>
+						<div class='col-sm-9'>
+							<input value='$address' type='text' class='form-control' name='inpAddress' id='inpAddress' placeholder='Address'> </div>
+					</div>
+					<div class='form-group'>
+						<label for='inpBirthDate' class='col-sm-3 control-label'>Date of Birth</label>
+						<div class='col-sm-9'>
+							<input value='$birthdate' type='date' class='form-control' name='inpBirthDate' id='inpBirthDate'> </div>
+					</div>
 					<div class='modal-footer'>
 						<input type='hidden' name='UPD_ID' value='$_ID'>
 						<button type='button' class='btn btn-danger pull-left' data-dismiss='modal'>Close</button>
@@ -143,6 +173,9 @@ include_once('./../connect.php');
 			$inputLNAME = mysqli_real_escape_string($_CON, $_POST['inputLNAME']);
 			$inputCURJOB = mysqli_real_escape_string($_CON, $_POST['inputCURJOB']);
 			$inputPREJOB = mysqli_real_escape_string($_CON, $_POST['inputPREJOB']);
+			$inpSSS = mysqli_real_escape_string($_CON, $_POST['inpSSS']);
+			$inpAddress = mysqli_real_escape_string($_CON, $_POST['inpAddress']);
+			$inpBirthDate = mysqli_real_escape_string($_CON, $_POST['inpBirthDate']);
 
 			//CHECK IF EIN ARE THE SAME FROM TEXTBOX AND DATABASE
 			$sqlSearch = mysqli_query($_CON, "SELECT EMP_EIN FROM employee_table WHERE EMP_ID='$_ID'");
@@ -151,7 +184,14 @@ include_once('./../connect.php');
 			if($inputEIN == $_GETEIN){
 				//UPDATE QUERY
 				$sqlUpdate = mysqli_query($_CON,"UPDATE employee_table SET
-				EMP_FNAME='$inputFNAME', EMP_LNAME='$inputLNAME', EMP_CUR_JOB='$inputCURJOB', EMP_PREV_JOB='$inputPREJOB' WHERE EMP_ID='$_ID' ");
+				EMP_FNAME='$inputFNAME',
+				EMP_LNAME='$inputLNAME',
+				EMP_CUR_JOB='$inputCURJOB',
+				EMP_PREV_JOB='$inputPREJOB',
+				emp_sss='$inpSSS',
+				emp_address='$inpAddress',
+				date_of_birth='$inpBirthDate'
+				WHERE EMP_ID='$_ID' ");
 				ob_end_clean();
 				header("location: employee.php?upd=true");
 			}else{
@@ -163,14 +203,22 @@ include_once('./../connect.php');
 					header("location: employee.php?upd=exist");
 				}else{
 					$sqlUpdate = mysqli_query($_CON,"UPDATE employee_table SET
-					EMP_EIN='$inputEIN', EMP_FNAME='$inputFNAME', EMP_LNAME='$inputLNAME', EMP_CUR_JOB='$inputCURJOB', EMP_PREV_JOB='$inputPREJOB' WHERE EMP_ID='$_ID' ");
+					EMP_EIN='$inputEIN',
+					EMP_FNAME='$inputFNAME',
+					EMP_LNAME='$inputLNAME',
+					EMP_CUR_JOB='$inputCURJOB',
+					EMP_PREV_JOB='$inputPREJOB',
+					emp_sss='$inpSSS',
+					emp_address='$inpAddress',
+					date_of_birth='$inpBirthDate'
+					WHERE EMP_ID='$_ID' ");
 					ob_end_clean();
 					header("location: employee.php?upd=true");
 				}
 			}
 		}
 	}
-	
+
 /////////////////////////////////////////////
 //DELETE MODAL
 	function delMod(){
@@ -230,7 +278,7 @@ include_once('./../connect.php');
 			}
 		}
 	}
-	
+
 ///////////////////////////////////////////
 //ADD RESPONSE
 	function addRes(){

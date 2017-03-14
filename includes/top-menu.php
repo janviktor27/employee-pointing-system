@@ -1,5 +1,8 @@
 <div id="page-header" class="clearfix">
 	<!-- #header-logo -->
+	<div id="sidebar-search">
+		<h3>&nbsp; PPDO ONLINE PMS</h3>
+	</div>
 	<div id="header-right">
 		<div class="user-profile dropdown">
 			<a href="#" title="" class="user-ico clearfix" data-toggle="dropdown">
@@ -23,7 +26,7 @@
 							</div>
 							<div class="pad5A button-pane button-pane-alt text-center">
 								<a href="?out=true" class="btn font-normal btn-danger pull-right">
-									<i class="glyph-icon icon-power-off"></i> Logout 
+									<i class="glyph-icon icon-power-off"></i> Logout
 								</a>
 							</div>
 						</div>
